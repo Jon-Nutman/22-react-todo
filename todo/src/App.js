@@ -4,16 +4,20 @@ import InputComponent from './InputComponent';
 import TodoListComponent from './TodoListComponent'
 import HeaderComponent from './HeaderComponent'
 import ListAdjusterComponent from './ListAdjusterComponent'
+import TodoApp from './todo/TodoApp'
 
 
 function App() {
   return (
+    
     <div className="container">
     <HeaderComponent />
-    <form>
+    <TodoApp />
+    
+    {/* <form>
     <InputComponent />
     <TodoListComponent />
-    </form>
+    </form> */}
     </div>
   );
 }

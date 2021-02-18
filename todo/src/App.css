@@ -23,12 +23,14 @@
 .input{
   width: 400px;
   height: 40px;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4); */
  border: none;
- border-bottom:solid black 1px ;
+ border-bottom:solid rgb(206, 206, 206) 2px ;
  
 }
-
+.input:focus{
+  outline: none;
+}
 /* LIST */
 
 .todoList{
