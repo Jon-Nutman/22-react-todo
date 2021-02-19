@@ -53,8 +53,10 @@ function todoReducer(state, action) {
     case "ALL":
         const allTodos = {...state, todos:[...state.trackingTodos] }
       return allTodos
-
-
+    case "CLEAR_COMPLETED":
+        const clearCompleted = [...state.todos.filter((todo) => todo.isComplete !== true),
+        ]
+        return {...state, trackingTodos: clearCompleted, todos: clearCompleted}
     default:
       throw new Error()
   }

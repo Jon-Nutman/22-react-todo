@@ -13,6 +13,9 @@ export default function ListAdjusterComponent(props) {
   function active(){
     dispatch({ type: "ACTIVE" })
   }
+function clearCompleted(){
+    dispatch({ type: "CLEAR_COMPLETED" })
+}
 
   return (
     <div className="bottom-bar">
@@ -22,6 +25,9 @@ export default function ListAdjusterComponent(props) {
         <button className="bottom-buttons" onClick={() => active()} >Activate</button>
         <button className="bottom-buttons" onClick={() => completed()}>
           Completed
+        </button>
+        <button className="bottom-buttons" onClick={() => clearCompleted()}>
+          Clear Completed
         </button>
       </div>
     </div>
