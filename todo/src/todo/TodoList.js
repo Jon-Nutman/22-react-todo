@@ -18,10 +18,12 @@ function TodoList(props) {
     <ul className='todoList'>
       {props.todos.map((todo) => ( 
         <li 
-        className='listItem'>
-           <input type="checkbox" checked={todo.isComplete} onClick={() =>completeTask(todo.id) } ></input>{' '} 
+        className={todo.isComplete? 'listItemChecked' : 'listItem'}>
+            <div>
+           <input type="checkbox" checked={todo.isComplete} onChange={() =>completeTask(todo.id) } ></input>{' '} 
             {todo.description}
-            <button onClick={() => removeTodo(todo.id)}>x</button>
+            </div>
+            <button className='xButton' onClick={() => removeTodo(todo.id)}>X</button>
         </li>
       ))}
     </ul>

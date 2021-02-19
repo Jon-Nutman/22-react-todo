@@ -1,4 +1,5 @@
 import {useContext, useState} from 'react'
+import ListAdjusterComponent from './ListAdjusterComponent'
 import { store } from './Provider'
 import  TodoList from './TodoList'
 
@@ -10,6 +11,7 @@ export default function Child() {
     // console.log(globalState.state)
     const todos = globalState.state.todos
     const count = globalState.state.count
+    console.log(count)
     const { dispatch } = globalState
     function handleSubmit(e) {
       e.preventDefault()
@@ -29,7 +31,7 @@ export default function Child() {
           />
         </form>
         <TodoList todos={todos} />
-        
+        <ListAdjusterComponent count={count} />
       </div>
     )
   }
