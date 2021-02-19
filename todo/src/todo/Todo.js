@@ -7,22 +7,19 @@ export default function Child() {
     const globalState = useContext(store)
     const [text, setText] = useState("")
     // console.log(globalState)
-    console.log(globalState.state)
+    // console.log(globalState.state)
     const todos = globalState.state.todos
     const count = globalState.state.count
     const { dispatch } = globalState
     function handleSubmit(e) {
       e.preventDefault()
-      const action = { type: "ADD_TODO", payload: text }
       // console.log(action)
-      dispatch({ type: "INCREMENT" })
       dispatch({ type: "ADD_TODO", payload: text })
       setText("")
     }
+
     return (
       <div>
-        {/* {count} */}
-        {/* {text} */}
         <form action="" onSubmit={handleSubmit}>
           <input
           className='input'
@@ -32,6 +29,7 @@ export default function Child() {
           />
         </form>
         <TodoList todos={todos} />
+        
       </div>
     )
   }

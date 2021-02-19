@@ -1,8 +1,9 @@
 import { createContext, useReducer } from 'react'
 
-const initialState = {todos: [], count: 0};
+const initialState = {todos: [[{id: 1, description: 'hello'}, {id: 2, description: 'bye'}]], count: 0, isComplete: false  };
 export const store = createContext(initialState);
 const { Provider } = store;
+console.log()
 
 // arr.reduce
 // [1,2,3].reduce((a, b) => a + b, 10) // 16
@@ -15,10 +16,27 @@ function todoReducer(state, action){
           return {...state, todos: [...state.todos, {id: id(), description: action.payload}]}
       case 'INCREMENT':
           return {...state, count: state.count + 1}
+    case 'REMOVE_TODO':
+        const todoId = action.payload
+        const newTodos = state.todos.filter(todo => todo.id !== todoId)
+        return {...state, todos: newTodos}
+
+    case 'CHECKED':
+        return {...state, todos: state.todos.map(item => {
+            if(item.id === action.payload){
+                item.isComplete = true
+            }else{
+                item.isComplete = false
+            }
+            return item.isComplete
+        })}
       default:
         throw new Error();
     };
 }
+
+
+
 
 const StateProvider = ( { children } ) => {
                                             // {type: 'ADD_TODO', payload: 'hello'}
