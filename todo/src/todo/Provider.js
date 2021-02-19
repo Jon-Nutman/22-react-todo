@@ -39,11 +39,17 @@ function todoReducer(state, action) {
         todos: checked, 
         trackingTodos : checked
     }
+    case "ACTIVE":
+        const activeTodos = [...state.todos.filter((todo) => todo.isComplete !== true),
+        ]
+        return {...state, todos: activeTodos}
+
     case "COMPLETED":
       const completedTodos = [
         ...state.todos.filter((todo) => todo.isComplete == true),
       ]
       return { ...state, todos: completedTodos }
+
     case "ALL":
         const allTodos = {...state, todos:[...state.trackingTodos] }
       return allTodos

@@ -10,13 +10,16 @@ export default function ListAdjusterComponent(props) {
   function all() {
     dispatch({ type: "ALL" })
   }
+  function active(){
+    dispatch({ type: "ACTIVE" })
+  }
 
   return (
     <div className="bottom-bar">
       <p>{props.count} Items Left</p>
       <div>
         <button className="bottom-buttons" onClick={() => all()} >All</button>
-        <button className="bottom-buttons">Activate</button>
+        <button className="bottom-buttons" onClick={() => active()} >Activate</button>
         <button className="bottom-buttons" onClick={() => completed()}>
           Completed
         </button>
