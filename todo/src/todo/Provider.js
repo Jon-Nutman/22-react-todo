@@ -36,7 +36,8 @@ function todoReducer(state, action) {
         return item
       })
       return { ...state, 
-        todos: checked 
+        todos: checked, 
+        trackingTodos : checked
     }
     case "COMPLETED":
       const completedTodos = [
