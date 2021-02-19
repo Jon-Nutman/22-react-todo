@@ -21,24 +21,30 @@ function todoReducer(state, action) {
     case "REMOVE_TODO":
       const todoId = action.payload
       const newTodos = state.todos.filter((todo) => todo.id !== todoId)
-      return { ...state, todos: newTodos, trackingTodos: newTodos, count: state.count - 1 }
+      return { ...state,
+         todos: newTodos,
+        trackingTodos: newTodos, 
+        count: state.count - 1
+     }
 
     case "CHECKED":
-      const checked = state.trackingTodos.map((item) => {
+      const checked = state.todos.map((item) => {
         if (item.id === action.payload) {
           const newObj = { ...item, isComplete: !item.isComplete }
           return newObj
         }
         return item
       })
-      return { ...state, todos: checked, trackingTodos: checked }
+      return { ...state, 
+        todos: checked 
+    }
     case "COMPLETED":
       const completedTodos = [
-        ...state.trackingTodos.filter((todo) => todo.isComplete == true),
+        ...state.todos.filter((todo) => todo.isComplete == true),
       ]
-      return { ...state, todos: completedTodos, trackingTodos: completedTodos }
+      return { ...state, todos: completedTodos }
     case "ALL":
-        const allTodos = {...state, todos:[...state.todos] }
+        const allTodos = {...state, todos:[...state.trackingTodos] }
       return allTodos
 
 
