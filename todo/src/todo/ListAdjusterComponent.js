@@ -26,7 +26,7 @@ function clearCompleted(){
         <button className="bottom-buttons" onClick={() => completed()}>
           Completed
         </button>
-        <button className="bottom-buttons" onClick={() => clearCompleted()}>
+        <button className="bottom-buttons-CC" onClick={() => clearCompleted()}>
           Clear Completed
         </button>
       </div>

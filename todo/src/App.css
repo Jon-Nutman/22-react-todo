@@ -85,3 +85,16 @@ text-decoration: line-through;
   background: transparent;
   border: none;
 }
+.bottom-buttons-CC{
+  padding: 5px;
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
+.bottom-buttons:focus{
+  padding: 5px;
+  background: transparent;
+  border: solid black 1px;
+  border-radius: 7%;
+}
